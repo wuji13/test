@@ -12,23 +12,24 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...):项目的根目录
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!p9le9a9pm%ecmngp#&_@a4!v3-7o7-nmje+koet&!tbo14t$j'
+# SECURITY WARNING: keep the secret key used in production secret!：项目的安全码
+SECRET_KEY = 'w8r6+ei9abg!jdmb@d4i*7#4j)ze*+2jg#u9x5d8_ocu5lxk9z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#允许访问的地址
 ALLOWED_HOSTS = []
 
 
-# Application definition
+# Application definition应用列表
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -38,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
+#工具集
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,9 +49,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+#url的跟文件
 ROOT_URLCONF = 'myblog.urls'
 
+#模板的配置
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -67,11 +69,12 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'myblog.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+# Database数据库配置
+# https://docs.djangoproject.com/en/1.11/ref/settings/#databases配置说明
 
 DATABASES = {
     'default': {
@@ -100,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
+# Internationalization国际化
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
@@ -114,7 +117,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images)静态文件的
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
