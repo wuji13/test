@@ -5,7 +5,7 @@
     <title>page</title>
 </head>
 <body>
-<a href="">修改</a>
+<a href="{% url 'blog:edit_page' b.id %}">修改</a>
 {{b.title}}
 <br>
 {{b.content}}
