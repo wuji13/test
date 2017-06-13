@@ -4,12 +4,12 @@ from __future__ import unicode_literals
 from django.db import models
 
 class product(models.Model):
-	product_id = Models.CharField(maxlength=32)
-	product_name = Models.CharField(maxlength=128)
+	product_id = models.CharField(max_length=32)
+	product_name = models.CharField(max_length=128)
 
 
 
-	def __str__(self):
-        return self.product_name
+	#def __str__(self):
+       # return self.product_name
 
 
