@@ -2,24 +2,37 @@
 import numpy as np  
 import matplotlib.pyplot as plt  
 import pymysql
+import time
+import pandas as pd
+from pandas import Series,DataFrame
 
-def main(star,end):
+def main():
 	global conn
 	global cursor
-	dates = []
-	datas = []
 	conn = conn()
 	cursor = conn.cursor()
 
-	for i in range(end - star + 1):
-		td =select(end-i)
-		tdd = td[0]
-		date = tdd[2]
-		data = tdd[3]
-		dates =dates.append(date)
-		datas =dates.append(data)
-
+	rows = select()
 	close()
+	#数据库数据转换为dataframe
+	df = pd.DataFrame([ij for ij in i] for i in rows)
+	df.rename(columns={0:'id',1:'date',2:'bslb',3:'bscb',4:'bmcb'},inplace = True)
+
+	dates = df['date'].values
+	bslbs = df['bslb'].values
+
+	dd = dates.tolist()
+	bs = bslbs.tolist()
+
+	#ob = pd.DataFrame([ij for ij in i] for i in rows,index = dd, columns = ['id','date','bslb','bscb','bmcb'])
+	#print(ob)
+	
+	xx = df['bslb']
+	print(xx)
+
+	xx.plot() 
+	plt.show(xx)
+
 
 
 def conn():
@@ -27,16 +40,16 @@ def conn():
 			'host':'127.0.0.1',
 			'port':3306,
 			'user':'root',
-			'password':'test1234',
+			'passwd':'test1234',
 			'db':'gp',
 			'charset':'utf8',
 			}
 	connection = pymysql.connect(**config)
 	return connection
 
-def select(id):
+def select():
 	
-    cursor.execute("SELECT * FROM mmplb WHERE id = "+id)
+    cursor.execute("SELECT * FROM sh_600704")
     #接收全部的结果行
     results = cursor.fetchall()
     return results
@@ -62,9 +75,5 @@ def draw(x,y):
 	#保存图象  
 	plt.show()
 
-
-
-
-
-main(53,122)
+main()
 
