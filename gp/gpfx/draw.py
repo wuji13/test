@@ -26,12 +26,13 @@ def main():
 
 	#ob = pd.DataFrame([ij for ij in i] for i in rows,index = dd, columns = ['id','date','bslb','bscb','bmcb'])
 	#print(ob)
-	
-	xx = df['bslb']
-	print(xx)
+	print(dd)
+	draw(dd,bs)
+	#xx = df['bslb']
 
-	xx.plot() 
-	plt.show(xx)
+
+	#xx.plot() 
+	#plt.show(xx)
 
 
 
@@ -49,7 +50,7 @@ def conn():
 
 def select():
 	
-    cursor.execute("SELECT * FROM sh_600704")
+    cursor.execute("SELECT * FROM mmplb")
     #接收全部的结果行
     results = cursor.fetchall()
     return results
@@ -67,7 +68,7 @@ def draw(x,y):
 	plt.title("A simple plot")    
 	#创建绘图对象  
 	#创建绘图对象，figsize参数可以指定绘图对象的宽度和高度，单位为英寸，一英寸=80px
-	plt.figure(figsize=(200,100))  
+	plt.figure(figsize=(20,10))  
 	#在当前绘图对象中画图（x轴,y轴,给所绘制的曲线的名字，画线颜色，画线宽度）  
 	plt.plot(x,y,label="均价",color="red",linewidth=2)
 	#在当前绘图对象进行绘图（两个参数是x,y轴的数据）  
