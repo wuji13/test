@@ -3,6 +3,15 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from rest_framework.response import Response
+from rest_framework import status
+import json
+from blog.serializers import ArticleSerializer
+from rest_framework import viewsets, filters
+from rest_framework.decorators import api_view
+
+
+
 
 from . import models
 
@@ -36,6 +45,26 @@ def edit_submit(request):
 		a.content=content
 		a.save()
 		return render(request, 'blog/article_page.html', {'b':a})
+
+@api_view(['GET'])
+def test(request):
+	articles = models.article.objects.all
+	tt = TaskSerializer(articles)
+	return Response(tt.data)
+
+@api_view(['GET'])
+#queryset设置为Model的queryset，serializer_class设置为刚才定义的serializer。
+class BlogViewSet(viewsets.ModelViewSet):
+	"""docstring for ClassName"""
+	queryset = models.article.objects.all()
+	serializer_class = ArticleSerializer
+
+		
+
+
+
+
+
 
 
 

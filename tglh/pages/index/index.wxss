@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-content: center;
 }
 
 .userinfo-avatar {
@@ -18,4 +19,11 @@
 
 .usermotto {
   margin-top: 200px;
+}
+
+.ll {
+  height: 100rpx;
+  width: 700rpx;
+  background-color: #858585;
+
 }

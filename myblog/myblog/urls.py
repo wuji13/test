@@ -18,7 +18,14 @@ from django.contrib import admin
 
 import blog
 
+from rest_framework import routers
+from blog.views import ArticleSerializer
+
+router = routers.DefaultRouter()
+#router.register(r'blogs', ArticleSerializer)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^index/', include('blog.urls',namespace='blog')),
-]
+   # url(r'^apid/',include('rest_framework.urls',namespace='rest_framework'))
+    ]

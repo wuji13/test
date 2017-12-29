@@ -2,7 +2,7 @@
 var util = require('../../utils/util.js')
 Page({
   data: {
-    logs: []
+    logs: [],
   },
   onLoad: function () {
     this.setData({
@@ -10,5 +10,11 @@ Page({
         return util.formatTime(new Date(log))
       })
     })
-  }
+    a=this.getloca();
+
+
+
+  },
+
+
 })
